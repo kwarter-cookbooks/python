@@ -40,3 +40,7 @@ default['python']['configure_options'] = %W{--prefix=#{python['prefix_dir']}}
 
 default['python']['distribute_script_url'] = 'http://python-distribute.org/distribute_setup.py'
 default['python']['distribute_option']['download_base'] = 'https://pypi.python.org/packages/source/d/distribute/'
+
+default['python'][:pip][:config] = false
+default['python'][:pip]['users_group'] = 'sysadmin'
+default['python'][:pip]['cache_dir'] = '/var/pip/cache'
