@@ -31,9 +31,9 @@ end
 # http://stackoverflow.com/questions/4324558/whats-the-proper-way-to-install-pip-virtualenv-and-distribute-for-python
 # https://bitbucket.org/ianb/pip/issue/104/pip-uninstall-on-ubuntu-linux
 # http://s3.pixane.com/pip_distribute.png
-remote_file "#{Chef::Config[:file_cache_path]}/distribute_setup.py" do
-  source node['python']['distribute_script_url']
+cookbook_file "#{Chef::Config[:file_cache_path]}/distribute_setup.py" do
   mode "0644"
+  action :create_if_missing
   not_if { ::File.exists?(pip_binary) }
 end
 
